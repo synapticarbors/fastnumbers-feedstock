@@ -1,27 +1,25 @@
 {% set name = "fastnumbers" %}
-{% set version = "2.0.2" %}
+{% set version = "2.0.3" %}
 {% set bundle = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash = "9bb643edbad37dba9fb14c51fafff573e5ff81fcb903628c2d6c98ed4b88f34f" %}
-{% set build = 0 %}
+{% set hash = "cdd60a87877814124b10d66fe23042fcefe3e6e4a0ccc1bfef1ee34ec10875c5" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ bundle }}
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
   {{ hash_type }}: {{ hash }}
 
 build:
-  number: {{ build }}
-  script: python setup.py install --single-version-externally-managed --record=record.txt
+  number: 0
+  script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
   build:
     - python
-    - setuptools
+    - pip
     - toolchain
 
   run:
