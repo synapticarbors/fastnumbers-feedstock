@@ -1,8 +1,8 @@
 {% set name = "fastnumbers" %}
-{% set version = "2.0.4" %}
+{% set version = "2.0.5" %}
 {% set bundle = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash = "53ecfcfd250868b52091f61ffe06962c429bef253e8989674230f1d0e6161470" %}
+{% set hash = "632a9cfc33e6dc33fe665b16241dca34f84c5361ba510db210b76976f70d8762" %}
 
 package:
   name: {{ name|lower }}
@@ -18,6 +18,8 @@ build:
 
 requirements:
   build:
+    - {{ compiler('c') }}
+  host:
     - python
     - pip
     - toolchain
