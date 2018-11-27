@@ -1,7 +1,6 @@
 {% set name = "fastnumbers" %}
 {% set version = "2.1.1" %}
 {% set bundle = "tar.gz" %}
-{% set hash_type = "sha256" %}
 {% set hash = "f792005acda74b589d9d42217bc7427ebe1b5fabd305ea6995403b5317f6980e" %}
 
 package:
@@ -10,10 +9,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  sha256: {{ hash }}
 
 build:
-  number: 0
+  number: 1000
   script: python -m pip install --no-deps --ignore-installed .
 
 requirements:
@@ -22,8 +21,6 @@ requirements:
   host:
     - python
     - pip
-    - toolchain
-
   run:
     - python
 
