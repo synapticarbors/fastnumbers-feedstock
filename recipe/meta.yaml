@@ -1,7 +1,7 @@
 {% set name = "fastnumbers" %}
-{% set version = "3.0.0" %}
+{% set version = "3.1.0" %}
 {% set bundle = "tar.gz" %}
-{% set hash = "93ce2f9516fbf2bbf46c85e4abef783cc569e5fbbc665352efb9cdddbae517ec" %}
+{% set hash = "7cc4f96981ccd3cf212b6ea7b84ef621620b62da8b454f420aa2e81c8529e68f" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ hash }}
 
 build:
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -33,7 +33,7 @@ about:
   license_file: LICENSE
   license: MIT
   license_family: MIT
-  summary: 'Super-fast and clean conversions to numbers.'
+  summary: Super-fast and clean conversions to numbers.
   dev_url: https://github.com/SethMMorton/fastnumbers
   doc_url: https://fastnumbers.readthedocs.io/
 
