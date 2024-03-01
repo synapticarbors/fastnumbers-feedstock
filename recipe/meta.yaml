@@ -1,18 +1,16 @@
 {% set name = "fastnumbers" %}
-{% set version = "3.1.0" %}
-{% set bundle = "tar.gz" %}
-{% set hash = "7cc4f96981ccd3cf212b6ea7b84ef621620b62da8b454f420aa2e81c8529e68f" %}
+{% set version = "5.1.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  sha256: {{ hash }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: e092d33f8b95c3171a2fb34e579efe0c54b0290dd7f96ffaa2762437601d90a7
 
 build:
-  number: 4
+  number: 0
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -20,6 +18,7 @@ requirements:
     - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
   host:
     - python
     - pip
